@@ -1,11 +1,10 @@
 #!/bin/bash
-# sleep 10
+set -e
+
 cd /shared-data
-echo "I'm dumping the records"
-echo "$(env)"
 touch db.sql
 chown postgres db.sql
 chmod 777 db.sql
 su postgres -c "pg_dumpall > db.sql"
 
-# echo "Hello"
+### Script concept gotten from https://github.com/docker-library/postgres/issues/37#issuecomment-277621597

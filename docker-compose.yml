@@ -8,10 +8,6 @@ services:
       - docker-postgres-data:/shared-data
     environment:
       - PGDATA=/data
-    links:
-      - old_postgres
-    depends_on:
-      - old_postgres
   old_postgres:
     build: ./pg_old
     volumes:
