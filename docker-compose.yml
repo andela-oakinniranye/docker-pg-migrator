@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  new_postgres:
+    build: ./pg_new
+    volumes:
+      - ./new-data:/data
+      - docker-postgres-data:/shared-data
+    environment:
+      - PGDATA=/data
+    links:
+      - old_postgres
+    depends_on:
+      - old_postgres
+  old_postgres:
+    build: ./pg_old
+    volumes:
+      - ./old-data:/data
+      - docker-postgres-data:/shared-data
+    environment:
+      - PGDATA=/data
+
+volumes:
+  docker-postgres-data:
