@@ -13,7 +13,7 @@ To make this work for you, if postgres haven't made a simpler path for updating,
 3. Copy your pgdata into this directory and rename `old-data` - these are configurations that you can tweak
 4. Startup the docker containers:
 ```bash
-docker up web
+docker up new_postgres
 ```
 Wait for both containers to start up and the old container to have exited(the magic is in pg_old/scripts)
 5. sh into your new_postgres container(the container name depends):
